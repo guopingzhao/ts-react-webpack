@@ -1,3 +1,4 @@
+const path = require("path");
 const {
     IgnorePlugin,
     DefinePlugin,
@@ -8,11 +9,11 @@ const {
 module.exports = {
     mode: 'production',
     output: {
-        path: "dist",
+        path: path.resolve("dist"),
         filename: "./[name].[chunkhash:8].js",
         chunkFilename: "./[name].[id].[chunkhash:8].js",
     },
-    pulgins: [
+    plugins: [
         new optimize.ModuleConcatenationPlugin(),
         new IgnorePlugin(/^\.\/locale$/, /moment$/),
         new DefinePlugin({
@@ -21,14 +22,6 @@ module.exports = {
         new LoaderOptionsPlugin({
             minimize: true,
             debug: false,
-        }),
-        // new optimize.UglifyJsPlugin({
-        //     comments: false,
-        //     compress: {
-        //         warnings: false,
-        //         drop_debugger: true,
-        //         drop_console: true
-        //     }
-        // }),
+        })
     ]
 }

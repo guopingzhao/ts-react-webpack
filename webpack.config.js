@@ -78,7 +78,7 @@ module.exports = function (env) {
         "src",
         "node_modules"
       ],
-      extensions: [".ts", ".tsx", ".js", ".json"],
+      extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
     },
     plugins: [
       new HtmlWebpackPlugin({
